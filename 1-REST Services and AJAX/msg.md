@@ -1,1 +1,1 @@
-all request are auto-generated through postman with option JavaScript - Fetch
+#all request are auto-generated through postman with option JavaScript - Fetch
