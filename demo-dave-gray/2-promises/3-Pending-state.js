@@ -20,9 +20,9 @@ const users = fetch("https://jsonplaceholder.typicode.com/users").then(response 
     .then(data => {
         console.log(data); //now we get data  result from console.log() --->  (10)[{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}];
         /*
-        So once we get a data we can work with it, but we needs to remember that is withnin this block in this anonymous function,
+        So once we get a data we can work with it, but we needs to remember that is within this block in this anonymous function,
         we can just suddenly take the data out into a global area here, because that's not execute order in the same order. This chain
-        is the same order. Outside of this it we go ahead and executhing data into our file before this is complete
+        is the same order. Outside of this it we go ahead and executing data into our file before this is complete
          */
 
         data.forEach(user => {

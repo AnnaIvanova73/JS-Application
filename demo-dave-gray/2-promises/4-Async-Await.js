@@ -39,6 +39,11 @@ async function myCoolFunction() {
 2.
 const  myCoolFunction = async () => {
 }
+3.
+for await (variable of iterable) {
+  statement
+}
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for-await...of
  */
 
 /*
