@@ -7,7 +7,7 @@ function loadRepos() {
     const buildRequestUrl = (requestData) => { // build request url function receive object
         return `https://api.github.com/users/${requestData.userName}/repos?per_page=100`;
     }
-    const requestRepos = async (url) => { //make request to the ne constructed url
+    const requestFromApi = async (url) => { //make request to the ne constructed url
 
         const response = await fetch(url);//return promise
         const jsonResponse = await response.json();//returns promise
@@ -19,7 +19,7 @@ function loadRepos() {
     const engineStartFunction = async () => {
         const requestData = getData();
         const requestUrl = buildRequestUrl(requestData);
-        await requestRepos(requestUrl);
+        await requestFromApi(requestUrl);
     }
     engineStartFunction();
 
