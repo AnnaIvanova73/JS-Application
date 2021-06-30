@@ -1,0 +1,50 @@
+const getTodos = (callback) => {
+    const request = new XMLHttpRequest();
+
+    request.addEventListener('readystatechange', () => {
+        if (request.readyState === 4 && request.status === 200) {
+            callback(undefined,request.responseText);
+        } else if (request.readyState === 4) {
+            callback(`could not fetch data`,undefined);
+        }
+    })
+    request.open('GET', 'https://jsonplaceholder.typicode.com/todos');
+    //request.open('GET', 'https://jsonplaceholder.typicode.com/todoss'); test with error
+    request.send();
+};
+
+console.log(1)
+console.log(2)
+getTodos((err,data) => { //Convention is when we do callback like this from network request, we always do err first and data second
+    console.log('callback fired')
+    //console.log(err,data)
+    if(err){
+        console.log(err);
+    }else{
+        console.log(data)
+    }
+});
+console.log(3)
+console.log(4)
+
+
+
+/*
+const getTodos = (callback) => {
+    const request = new XMLHttpRequest();
+
+    request.addEventListener('readystatechange', () => {
+        if (request.readyState === 4 && request.status === 200) {
+            callback();
+        } else if (request.readyState === 4) {
+            callback();
+        }
+    })
+    request.open('GET', 'https://jsonplaceholder.typicode.com/todos');
+    request.send();
+};
+
+getTodos(() => {
+console.log('callback fired')
+});
+*/
