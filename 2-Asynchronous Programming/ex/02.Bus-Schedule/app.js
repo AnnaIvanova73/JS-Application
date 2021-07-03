@@ -6,7 +6,7 @@ function solve() {
             departBtn: document.querySelector('#depart'),
         }
     };
-    const requestData = {id: "depot"};
+    const requestData = {id: "depot",name: 'Depot'};
 
     const takeRepercussions = () => {
         getElementsDom().box.textContent = 'Error';
@@ -21,11 +21,14 @@ function solve() {
     }
 
     function arrive() {
-        engineStartPromiseChain().catch(takeRepercussions);
+        getElementsDom().box.textContent = `Arriving at ${requestData.name}`;
+        getElementsDom().departBtn.disabled = false;
+        getElementsDom().arriveBtn.disabled = true;
     }
 
     const renderDataOnDom = (data) => {
         requestData.id = data.next;
+        requestData.name = data.name;
         getElementsDom().box.textContent = `Next stop ${data.name}`;
     };
 

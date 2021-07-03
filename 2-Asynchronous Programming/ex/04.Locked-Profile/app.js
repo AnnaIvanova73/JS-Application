@@ -40,7 +40,7 @@ function lockedProfile() {
                         currDiv.querySelector('#user1HiddenFields').style.display = 'block';
                         currDiv.querySelector('button').textContent = 'Hide it';
                     }
-           }else{
+           }else if(e.target.textContent === 'Hide it'){
                if(radio.checked){
                    currDiv.querySelector('#user1HiddenFields').style.display = 'none';
                    currDiv.querySelector('button').textContent = 'Show more';
