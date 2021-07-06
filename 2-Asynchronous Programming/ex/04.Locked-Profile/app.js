@@ -33,19 +33,19 @@ function lockedProfile() {
 
     Array.from(document.querySelectorAll(`#main`)).forEach(e => {
         e.addEventListener('click',(e) =>{
-           let currDiv =  e.target.parentNode;
-           let radio = currDiv.querySelectorAll('input[type ="radio"]')[1];
-           if(e.target.textContent === 'Show more'){
-                    if(radio.checked){
-                        currDiv.querySelector('#user1HiddenFields').style.display = 'block';
-                        currDiv.querySelector('button').textContent = 'Hide it';
-                    }
-           }else if(e.target.textContent === 'Hide it'){
-               if(radio.checked){
-                   currDiv.querySelector('#user1HiddenFields').style.display = 'none';
-                   currDiv.querySelector('button').textContent = 'Show more';
-               }
-           }
+            let currDiv =  e.target.parentNode;
+            let radio = currDiv.querySelectorAll('input[type ="radio"]')[1];
+            if(e.target.textContent === 'Show more'){
+                if(radio.checked){
+                    currDiv.querySelector('#user1HiddenFields').style.display = 'block';
+                    currDiv.querySelector('button').textContent = 'Hide it';
+                }
+            }else if(e.target.textContent === 'Hide it'){
+                if(radio.checked){
+                    currDiv.querySelector('#user1HiddenFields').style.display = 'none';
+                    currDiv.querySelector('button').textContent = 'Show more';
+                }
+            }
         })
     })
 

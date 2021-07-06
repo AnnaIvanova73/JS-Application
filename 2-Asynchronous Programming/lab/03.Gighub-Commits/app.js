@@ -15,13 +15,12 @@ function loadCommits() {
     const requestFromApi = async (url) => {
         const response = await fetch(url);
 
-        if (response.status !== 200) {
-            throw new Error('Not Found')
+        if (!response.ok) {
+            throw new Error('Cannot fetch')
         }
 
         const jsonResponse = await response.json();
-        const data = jsonResponse;
-        renderDataOnDom(data);
+        renderDataOnDom(jsonResponse);
     };
 
     const renderDataOnDom =  (data) => {
