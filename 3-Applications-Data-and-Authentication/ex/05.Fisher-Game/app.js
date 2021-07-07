@@ -159,7 +159,7 @@ function attachEvents() {
        }catch(err){
         alert(err);
        }
-
+        Array.from(inputFields).forEach(e => e.value = ``);
     });
     document.querySelector('button.load').addEventListener('click', async () => {
         localStorage.length > 0 ? document.querySelector(`button.add`).disabled = false :
