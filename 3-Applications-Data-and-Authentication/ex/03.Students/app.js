@@ -1,7 +1,10 @@
 function attachEvents() {
     const ERROR_MSG = `Uppps something went wrong. Apparently... this is happening: -->\r\n`;
     const IS_INVALID = (pr1, pr2, pr3, pr4) => !pr1 || !pr2 || !pr3 || !pr4;
-
+    const isNotANumber = (p) => {
+        let num = Number(p);
+        return num !== num;
+    };
     function createElement(type, text, attributes = []) {
         let element = document.createElement(type);
         if (text) {
@@ -23,6 +26,9 @@ function attachEvents() {
             newForm.get('grade').trim())) {
 
             throw new Error(`Invalid input. All fields are required!`);
+        }
+        if(isNotANumber(newForm.get('grade')) || isNotANumber(newForm.get('facultyNumber'))){
+            throw new Error(`Grade and facultyNumber should be numbers!`);
         }
         return {
             firstName: newForm.get('firstName'),
@@ -55,9 +61,15 @@ function attachEvents() {
 
     document.querySelector(`form`).addEventListener('submit', async (e) => {
         e.preventDefault();
-        await processWorkFlowPost(e.target).catch(err => {
-            alert(`${ERROR_MSG}${err}`);
-        });
+
+        try{
+            await processWorkFlowPost(e.target).catch(err => {
+                alert(`${ERROR_MSG}${err}`);
+            });
+        }catch (err) {
+            console.error(err);
+        }
+
     });
 
     const postDataOnWebPage = (data) => {
@@ -96,6 +108,9 @@ function attachEvents() {
             alert(`${ERROR_MSG}${err}`);
         });
     };
-    fetchData();
+
+    return fetchData();
 }
-attachEvents()
+window.onload = async () =>{
+    await attachEvents()
+}

@@ -45,10 +45,10 @@ function attachEvents() {
         Array.from(bodyTable.children).forEach(e => e.remove());
 
         Object.entries(data).forEach(entry => {
-            let [key, e] = entry;
+            let [key, el] = entry;
             let row = createElement('tr');
-            const book = createElement('td', e.title);
-            const author = createElement('td', e.author);
+            const book = createElement('td', el.title);
+            const author = createElement('td', el.author);
             let wrapperButtons = createElement('td');
             const editBtn = createElement('button', `Edit`);
             const deleteBtn = createElement('button', `Delete`);
@@ -57,9 +57,11 @@ function attachEvents() {
                 let requestUrl = buildRequestUrl(key);
                 await requestDataFromServer(requestUrl, {method: 'delete'}).catch(err => {console.log(err)});
             });
+            let form = document.querySelector('form > h3');
             editBtn.addEventListener('click', async () => {
-                document.querySelector('input[name="title"]').value = e.title;
-                document.querySelector('input[name="author"]').value = e.author;
+                form.textContent = 'Edit FORM'
+                document.querySelector('input[name="title"]').value = el.title;
+                document.querySelector('input[name="author"]').value = el.author;
                 id = key;
             });
             appendChildren(wrapperButtons, [editBtn, deleteBtn]);
@@ -70,16 +72,17 @@ function attachEvents() {
 
     document.querySelector('form').addEventListener('submit', async (e) => {
         e.preventDefault();
-        const data = getDataFromForm(e.target);
         try {
+            const data = getDataFromForm(e.target);
             if (id !== -1) {
-                await triggerPostOrPutRequest(id, data, 'put')
+                await triggerPostOrPutRequest(id, data, 'put');
+                let form = document.querySelector('form > h3');
+                form.textContent = `FORM`;
             } else {
                 await triggerPostOrPutRequest(false, data, 'post')
             }
-            await getRequestWorkflow()
         } catch (err) {
-            console.log(err)
+            alert(err)
         } finally {
             Array.from(e.target.querySelectorAll(`input`)).forEach(e => e.value = ``);
             id = -1
