@@ -2,18 +2,16 @@ import renderOnDom from './renderOnDom.js';
 import {isInvalid, methodPostPut} from './constants.js';
 import {returnHome, showPage} from './commentPage.js';
 
-
 fetch(`http://localhost:3030/jsonstore/collections/myboard/posts`)
     .then(response => response.json())
     .then(data => {
         Object.values(data).forEach(e => {
             document.querySelector(`.topic-title`).appendChild(renderOnDom.homeView(e));
-        })
-
+        });
     });
+
 const getDataFromForm = (form) => {
     if (isInvalid([form.get('topicName'), form.get('username'), form.get('postText')])) {
-        form.reset();
         throw new Error('All fields are required!')
     }
 
@@ -52,5 +50,4 @@ form.addEventListener('submit', e => {
     } finally {
         currForm.reset();
     }
-
 });

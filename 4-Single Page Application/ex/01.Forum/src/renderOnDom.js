@@ -38,7 +38,6 @@ const postView  = ({postText,username,_id,_createdOn}) => {
     pElement.style.display = 'inline-block';
     appendChildren(pElement,[span,textNode,timeElement]);
     let pPostContent = createElement('p',postText,['class=post-content']);
-    //p.style.display = 'inline'
     appendChildren(divHeader,[imgElement,pElement,pPostContent]);
     return divHeader;
 };
