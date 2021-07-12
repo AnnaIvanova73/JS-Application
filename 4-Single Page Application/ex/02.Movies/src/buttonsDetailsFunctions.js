@@ -1,7 +1,7 @@
 import constants from './constants.js';
 import auth from './auth.js';
 import editMoviePage from './editMoviePage.js';
-
+import Utils from './utils.js';
 const deleteFunc = async (e, movieid) => {
     let response = await fetch(`${constants.ROOT_URL}data/movies/${movieid}`, {
         method: 'DELETE',
@@ -18,6 +18,7 @@ const deleteFunc = async (e, movieid) => {
                 e.remove();
             }
         });
+        Utils.hideAllViewsExceptOne('homePage');
     }
 };
 const editFunc = (e, movieid) => {
