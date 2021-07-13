@@ -1,7 +1,7 @@
-import Utils from './utils.js';
-import constants from './constants.js';
-import auth from "./auth.js";
-import renderOnDom from './renderOnDom.js';
+import Utils from '../utils/utils.js';
+import constants from '../constants/constants.js';
+import auth from "../utils/auth.js";
+import renderOnDom from '../utils/renderOnDom.js';
 
 const throwIfNotAuthenticated = () => {
     if (!auth.isAuthenticated()) {
@@ -57,12 +57,3 @@ const callAddMovieView = () => {
 export default {
     callAddMovieView
 };
-
-/*
-     // console.log(objectData);
-            // let  response = await fetch('http://localhost:3030/data/movies',{
-            //     method:'POST',
-            //     headers : {'Content-type': 'application/json', 'X-Authorization': auth.getToken()},
-            //     body: JSON.stringify({title:'asd',description:'asdasd',img:'asd'})
-            // });
- */

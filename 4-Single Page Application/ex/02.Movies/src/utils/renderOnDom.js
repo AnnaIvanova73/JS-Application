@@ -1,7 +1,7 @@
 import Utils from './utils.js';
 import Buttons from './buttonsDetailsFunctions.js';
-import auth from  './auth.js';
-import constants from './constants.js';
+import auth from './auth.js';
+import constants from './../constants/constants.js';
 
 const formMoviePreview = ({img, title, _ownerId, _id}) => {
     let divCard = Utils.createElement('div', null,

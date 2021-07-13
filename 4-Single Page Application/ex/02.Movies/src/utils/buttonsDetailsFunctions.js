@@ -1,7 +1,8 @@
-import constants from './constants.js';
+import constants from './../constants/constants.js';
 import auth from './auth.js';
-import editMoviePage from './editMoviePage.js';
+import editMoviePage from './../views/editMoviePage.js';
 import Utils from './utils.js';
+
 const deleteFunc = async (e, movieid) => {
     let response = await fetch(`${constants.ROOT_URL}data/movies/${movieid}`, {
         method: 'DELETE',
@@ -63,7 +64,6 @@ const likeFunc = async (e, ownerId, movieId, elem) => {
         }
 
         let data = await getCountCommentsOnMovie(movieId);
-        console.log(data);
         likes += Number(data.length);
 
     } catch (err) {

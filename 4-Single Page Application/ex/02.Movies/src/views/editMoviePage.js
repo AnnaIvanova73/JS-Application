@@ -1,6 +1,6 @@
-import constants from './constants.js';
-import Utils from './utils.js';
-import auth from './auth.js';
+import constants from '../constants/constants.js';
+import Utils from '../utils/utils.js';
+import auth from '../utils/auth.js';
 
 
 const getDataFromForm = (form) => {
@@ -43,7 +43,6 @@ const callEditMoviePage = (domElementDivContainer, _id) => {
                     }
                 });
             }
-
             Utils.hideAllViewsExceptOne('homePage');
         } catch (err) {
             alert(err);

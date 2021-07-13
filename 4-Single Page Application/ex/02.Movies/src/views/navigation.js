@@ -1,5 +1,5 @@
-import constants from './constants.js';
-import auth from './auth.js';
+import constants from '../constants/constants.js';
+import auth from '../utils/auth.js';
 
 const updateNavbar = () => {
     constants.getNavItems().welcome.removeAttribute('hidden');

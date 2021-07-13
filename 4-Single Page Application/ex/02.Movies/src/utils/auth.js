@@ -1,4 +1,4 @@
-import constants from './constants.js';
+import constants from './../constants/constants.js';
 
 const isAuthenticated = () => {
     return Boolean(localStorage.getItem(constants.authToken));
@@ -16,7 +16,7 @@ const getUserEmail = () => {
 const setUserEmail = (email) => {
     localStorage.setItem('userEmail', email);
 };
-const getUserId = (id) => {
+const getUserId = () => {
     return localStorage.getItem('id');
 };
 const setUserId = (id) => {
@@ -25,5 +25,4 @@ const setUserId = (id) => {
 
 export default {
     isAuthenticated, getUserEmail, setToken, setUserEmail, setUserId, getToken,getUserId
-
 };

@@ -1,11 +1,11 @@
-import movieDetailsPage from "./movieDetailsPage.js"
-import addMoviePage from "./addMoviePage.js";
-import homePage from './homePage.js';
-import navigation from './navigation.js';
-import registerPage from './registerPage.js';
-import loginPage from './loginPage.js';
-import constants from './constants.js';
-import utils from './utils.js';
+import movieDetailsPage from "./views/movieDetailsPage.js"
+import addMoviePage from "./views/addMoviePage.js";
+import homePage from './views/homePage.js';
+import navigation from './views/navigation.js';
+import registerPage from './views/registerPage.js';
+import loginPage from './views/loginPage.js';
+import constants from './constants/constants.js';
+import utils from './utils/utils.js';
 
 utils.hideAllViewsExceptOne('homePage');
 navigation.updateNavbar();
@@ -41,7 +41,8 @@ constants.getViews().homePage[3].addEventListener('click', async (e) => {
     if (e.target.type === 'button') {
         let ownerId = e.target.parentNode.parentNode.parentNode.getAttribute('data-ownerid');
         let movieId = e.target.parentNode.parentNode.parentNode.getAttribute('data-movieid');
-        await movieDetailsPage.callMovieDetailsPage(ownerId, movieId);
         constants.getViews().movieDetails.textContent = '';
+        await movieDetailsPage.callMovieDetailsPage(ownerId, movieId);
     }
 });
+

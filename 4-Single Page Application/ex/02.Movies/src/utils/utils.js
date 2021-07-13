@@ -1,4 +1,4 @@
-import constants from './constants.js';
+import constants from './../constants/constants.js';
 
 const hideAllViewsExceptOne = (param) => {
     let views = constants.getViews();
