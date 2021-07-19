@@ -19,15 +19,19 @@ function search() {
     document.querySelector('button').addEventListener('click', () => {
         let matches = 0;
         const currCity = document.querySelector('#searchText');
+        if(!currCity.value.trim()){
+            return;
+        }
+
         Array.from(document.querySelectorAll('ul li')).forEach(e => {
             if (e.textContent.includes(currCity.value)) {
                 e.classList.add('active');
                 matches++;
             }
         });
-        let text = matches ?
-            document.querySelector('#result').appendChild(document.createTextNode(`${matches === 1 ? `1 match found`
-                    : `${matches} matches found`}`)) : '';
+
+       matches ? document.querySelector('#result')
+           .appendChild(document.createTextNode(`${matches === 1 ? `1 match found` : `${matches} matches found`}`)) : '';
         currCity.value = '';
     });
 
