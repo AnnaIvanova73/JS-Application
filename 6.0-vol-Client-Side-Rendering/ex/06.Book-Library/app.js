@@ -1,4 +1,5 @@
 import {html, render} from './node_modules/lit-html/lit-html.js';
+import {guard} from "./node_modules/lit-html/directives/guard.js";
 const url = `http://localhost:3030/jsonstore/collections/books`;
 
 const postDataRequest = async (m,data,u = url ) => {
@@ -37,9 +38,10 @@ const createData = async (e) => {
     renderAllBooks(false, true);
     form.reset();
 };
+const bodyContent = (data, onEdit, onDelete) => html`${guard([data], () => data.map(el => bodyElements(el, onEdit,onDelete)))}`
 const createElements = (elements) => html`
-    ${elements.map(e => html`
-        <tr>${createTd(e)}</tr>`)}`;
+    ${guard([elements], () => elements.map(e => html`
+        <tr>${createTd(e)}</tr>`))}`;
 
 const createTd = (el) => html`
     <td>${el.author} ${el.lastName}</td>
