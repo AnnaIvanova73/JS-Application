@@ -13,7 +13,7 @@ export const ifIsInvalidThrow = (arr) => {
     }
 };
 const editBook = async (e) => {
-    console.log(e)
+    console.log(e);
     let id = e.currentTarget.closest('[data-id]');
     let data = await service.getBook(id.dataset.id);
     template.render(template.editForm(editForm.formID, id.dataset.id, prepareSaveEdit, data.title, data.author), formWrapper);
@@ -21,7 +21,7 @@ const editBook = async (e) => {
 const delBook = async (e) => {
     let id = e.currentTarget.closest('[data-id]');
     await service.deleteBook(id.dataset.id);
-    booksData.delete(id.dataset.id)
+    booksData.delete(id.dataset.id);
     template.render(template.bodyContent(Array.from(booksData.values()), editBook, delBook),
         document.querySelector('#tableBodyId'));
     template.render(template.createForm(createForm.formId, createBook), formWrapper);
@@ -60,7 +60,7 @@ const createBook = async (e) => {
         const sendData = {author, title};
         let serverData = await service.createBook(sendData);
         let receivedData = {author: serverData.author, title: serverData.title, id: serverData._id};
-        booksData.set(serverData._id, receivedData)
+        booksData.set(serverData._id, receivedData);
         template.render(template.bodyContent(Array.from(booksData.values()), editBook, delBook),
             document.querySelector('#tableBodyId'));
     } catch (err) {
