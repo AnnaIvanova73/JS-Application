@@ -3,7 +3,7 @@ import {html, render,reparentNodes} from './node_modules/lit-html/lit-html.js'
 const createElements = (elements) => html`${elements.map(e => html`${createSingleElement(e)}`)}`;
 
 const createSingleElement = (el) => html`
-    <option value=${el._id}>${el.text}</option>`
+    <option value=${el._id}>${el.text}</option>`;
 
 const throwIfImputeEmpty = (el) => {
     if (!el.trim()) {

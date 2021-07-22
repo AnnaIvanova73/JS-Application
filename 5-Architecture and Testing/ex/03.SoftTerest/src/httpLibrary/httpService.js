@@ -16,7 +16,7 @@ const httpRequest = async (method, url, isAuthorizedRequest, data = undefined) =
     let requestBody = {
         method: currMethod,
         headers
-    }
+    };
 
     if (data !== undefined) {
         requestBody.body = JSON.stringify(data);
