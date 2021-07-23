@@ -1,10 +1,10 @@
 import {getFormDataLog} from "../utils/verifications.js";
 import authService from "../services/authService.js";
 import catalogTemplate from "../templates/loginTemplate.js";
-
+import nav from "../pages/nav.js";
 
 export default function (context){
-
+nav.addActiveClass('loginLink');
     const loggUser = async (e) => {
         e.preventDefault();
         let form = e.currentTarget;

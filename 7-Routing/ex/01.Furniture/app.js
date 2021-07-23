@@ -1,4 +1,3 @@
-// import templates from './src/templates/catalogTemplate.js'
 import page from './node_modules/page/page.mjs';
 import catalogPage from './src/pages/catalogPage.js';
 import detailsPage from './src/pages/detailsPage.js';
@@ -10,8 +9,6 @@ import userViewPage from "./src/pages/userViewPage.js";
 import createPage from "./src/pages/createPage.js";
 import editPage from "./src/pages/editPage.js";
 import authService from "./src/services/authService.js";
-//import register from "./src/pages/registerPage.js";
-
 
 const router = () => {
     page('/home',catalogPage);

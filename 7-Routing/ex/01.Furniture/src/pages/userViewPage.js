@@ -1,6 +1,7 @@
 import catalogTemplate from "../templates/userViewTemplate.js";
 import furnitureService from "../services/furnitureService.js";
 import authService from "../services/authService.js";
+import nav from "../pages/nav.js";
 
 
 const requestFurnitures = async (id) => {
@@ -19,5 +20,6 @@ const getView = async () => {
 };
 
 export default async function (context) {
+    nav.addActiveClass('profileLink');
     await getView();
 }

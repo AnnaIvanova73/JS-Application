@@ -4,6 +4,7 @@ import authService from "../services/authService.js";
 
 
 
+
 const requestFurnitures = async (id) => {
     try {
         return await furnitureService.getFurniture(id);
@@ -23,5 +24,6 @@ const getView = async (id) => {
 
 };
 export default async function (context) {
+
     await getView(context.params.id);
 }

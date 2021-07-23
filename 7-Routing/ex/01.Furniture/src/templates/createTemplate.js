@@ -1,5 +1,5 @@
 import {html,render} from './../../node_modules/lit-html/lit-html.js';
-const renderCreateTemplate = () => {
+const renderCreateTemplate = (createRecordFunc,isYearValid,isModelValid) => {
     return html`
         <div class="container">
             <div class="row space-top">
@@ -8,7 +8,7 @@ const renderCreateTemplate = () => {
                     <p>Please fill all fields.</p>
                 </div>
             </div>
-            <form>
+            <form @submit=${createRecordFunc}>
                 <div class="row space-top">
                     <div class="col-md-4">
                         <div class="form-group">
@@ -17,11 +17,11 @@ const renderCreateTemplate = () => {
                         </div>
                         <div class="form-group has-success">
                             <label class="form-control-label" for="new-model">Model</label>
-                            <input class="form-control is-valid" id="new-model" type="text" name="model">
+                            <input class=form-control @change=${isModelValid} id="new-model" type="text" name="model">
                         </div>
                         <div class="form-group has-danger">
                             <label class="form-control-label" for="new-year">Year</label>
-                            <input class="form-control is-invalid" id="new-year" type="number" name="year">
+                            <input class=form-control @change=${isYearValid} id="new-year" type="number" name="year">
                         </div>
                         <div class="form-group">
                             <label class="form-control-label" for="new-description">Description</label>

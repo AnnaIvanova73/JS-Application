@@ -1,5 +1,6 @@
 import catalogTemplate from "../templates/catalogTemplate.js";
 import furnitureService from "../services/furnitureService.js";
+import nav from "../pages/nav.js";
 
 
 const requestFurnitures = async () => {
@@ -13,5 +14,6 @@ const getView = async () => {
 };
 
 export default async function (context) {
+    nav.addActiveClass('catalogLink');
     await getView();
 }
