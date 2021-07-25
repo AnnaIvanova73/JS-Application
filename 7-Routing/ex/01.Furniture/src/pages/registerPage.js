@@ -2,6 +2,7 @@ import {getFormDataLog} from "../utils/verifications.js";
 import authService from "../services/authService.js";
 import templates from "../templates/registerTemplate.js"
 import nav from "../pages/nav.js";
+
 export default function (context){
     nav.addActiveClass('registerLink');
     const registerUser = async (e) => {

@@ -3,8 +3,6 @@ import furnitureService from "../services/furnitureService.js";
 import authService from "../services/authService.js";
 
 
-
-
 const requestFurnitures = async (id) => {
     try {
         return await furnitureService.getFurniture(id);
@@ -12,7 +10,6 @@ const requestFurnitures = async (id) => {
         alert(err);
     }
 };
-
 
 const getView = async (id) => {
     let data = await requestFurnitures(id);

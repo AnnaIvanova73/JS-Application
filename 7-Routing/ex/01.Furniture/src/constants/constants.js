@@ -14,7 +14,7 @@ const INVALID_URL = `Image URL is required!`;
 const FIELDS_FURNITURE = `All field\'s except material are required!`;
 
 
-let endPoints ={
+let endPoints = {
     allRecords: `data/catalog`,
     createPoint: `data/catalog`,
     getPoint: `data/catalog/`,
@@ -25,6 +25,18 @@ let endPoints ={
     logout: `users/logout`
 };
 export default {
-    AUTH_TOKEN,EMAIL_USER,BASE_URL,endPoints,FIELDS_ALERT,PASSWORD_ALERT,ID_USER,INVALID_DESCRIPTION,INVALID_MODEL,INVALID_YEAR,
-    INVALID_PRICE,INVALID_URL,INVALID_MAKE,FIELDS_FURNITURE
+    AUTH_TOKEN,
+    EMAIL_USER,
+    BASE_URL,
+    endPoints,
+    FIELDS_ALERT,
+    PASSWORD_ALERT,
+    ID_USER,
+    INVALID_DESCRIPTION,
+    INVALID_MODEL,
+    INVALID_YEAR,
+    INVALID_PRICE,
+    INVALID_URL,
+    INVALID_MAKE,
+    FIELDS_FURNITURE
 };

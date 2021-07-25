@@ -4,10 +4,7 @@ import authService from "../services/authService.js";
 import nav from "../pages/nav.js";
 
 
-const requestFurnitures = async (id) => {
-    return await furnitureService.getAllFurnitureCreator(id);
-};
-
+const requestFurnitures = async (id) => await furnitureService.getAllFurnitureCreator(id);
 
 const getView = async () => {
     try {

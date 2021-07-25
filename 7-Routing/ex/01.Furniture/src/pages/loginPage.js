@@ -3,8 +3,9 @@ import authService from "../services/authService.js";
 import catalogTemplate from "../templates/loginTemplate.js";
 import nav from "../pages/nav.js";
 
-export default function (context){
-nav.addActiveClass('loginLink');
+export default function (context) {
+    nav.addActiveClass('loginLink');
+
     const loggUser = async (e) => {
         e.preventDefault();
         let form = e.currentTarget;
@@ -12,14 +13,14 @@ nav.addActiveClass('loginLink');
         try {
             let currForm = new FormData(form);
             let data = getFormDataLog([currForm.get('email'), currForm.get('password')]);
-            await authService.logUser(data,context);
+            await authService.logUser(data, context);
         } catch (err) {
-            alert(err)
+            alert(err);
         } finally {
             form.reset();
         }
 
     };
 
-    catalogTemplate.render(catalogTemplate.renderLoginTemplate(loggUser),document.querySelector('#root'));
+    catalogTemplate.render(catalogTemplate.renderLoginTemplate(loggUser), document.querySelector('#root'));
 };

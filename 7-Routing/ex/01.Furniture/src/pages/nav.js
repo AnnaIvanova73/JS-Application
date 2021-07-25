@@ -1,15 +1,9 @@
 import authService from "../services/authService.js";
-
-
 let keepRefElement = undefined;
 
 const init = (domElement) => {
     keepRefElement = domElement;
-    if (authService.isLoggedIn()) {
-        loginUserView();
-    } else {
-        logoutUserView();
-    }
+    authService.isLoggedIn() ? loginUserView() : logoutUserView();
 };
 
 
